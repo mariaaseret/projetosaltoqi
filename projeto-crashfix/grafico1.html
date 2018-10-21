@@ -1,0 +1,58 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Trasitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html>
+    <head>
+        <meta http-equiv="content-type" content="txt/html; charset=utf-8" />
+        <title>GRAFICO 1</title>
+        
+        <script type="text/javascript" src="https://www.google.com/jsapi"></script>
+        <script type="text/javascript">
+                
+            google.load('visualization', '1' , {'packages': ['corechart']});
+            google.setOnLoadCallback(desenhaGrafico);
+
+            function desenhaGrafico(){
+                var data = new google.visualization.DataTable();
+                data.addColumn('string', 'Mês');
+                data.addColumn('number', 'Despesas');
+                
+                data.addRows(5);
+                
+                data.setValue(0,0, 'JAN');
+                data.setValue(0,0, 345);
+                
+                data.setValue(1,0, 'FEV');
+                data.setValue(1,1, 345);
+                
+                data.setValue(2,0, 'MAR');
+                data.setValue(2,1, 345);
+                
+                data.setValue(3,0, 'ABR');
+                data.setValue(3,0, 345);
+                
+                data.setValue(4,0, 'MAI');
+                data.setValue(4,0, 345);
+                
+                var options = {
+                    title: 'Despesas por mês',
+                    width: 400, height: 300,
+                    colors:['#335070'],
+                    legend: {position: 'bottom'}
+                    
+                };
+                
+                var chart = new google.visualization.LineChart(document.getElementById('chart_div'));
+                
+                chart.draw(data, options);
+                
+            }
+        </script>
+
+
+
+    </head>
+
+    <body>
+        <div id="chart_div"></div>
+
+    </body>
+</html>
